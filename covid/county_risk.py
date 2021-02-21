@@ -36,7 +36,7 @@ class CountyRisk:
         self.active_cases = dict((fips, s[s.fips == fips].cases[self.three_weeks] - s[s.fips == fips].cases[self.two_weeks]) for fips in self.all_fips)
 
         print('reading county populations')
-        pop_csv = pd.read_csv('https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/counties/totals/co-est2019-alldata.csv', engine='python')
+        pop_csv = pd.read_csv('https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/counties/totals/co-est2019-alldata.csv', encoding='latin1')
         pop_csv['FIPS'] = pop_csv.STATE * 1000 + pop_csv.COUNTY
         self.pop = pop_csv.set_index('FIPS')['POPESTIMATE2019']
 
