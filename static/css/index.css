@@ -1,0 +1,66 @@
+
+.valign-wrapper.full-screen {
+    min-height: 80vh;
+}
+
+.valign-wrapper #home-logo {
+    max-width: 20%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.valign-wrapper h1 {
+    min-width: 100%;
+    text-align: center;
+    font-size: 36px;
+    margin: 7.5px 0 15px 0;
+}
+
+.valign-wrapper h5 {
+    min-width: 100%;
+    text-align: center;
+}
+
+.valign-wrapper a {
+    display: block;
+    margin: 0 auto;
+    width: 160px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.footer-copyright h6 {
+    margin: 0 auto;
+}
+
+.footer-copyright h6 a {
+    color: white;
+    text-decoration: underline;
+    transition: 0.3s all;
+}
+
+.footer-copyright h6 a:hover {
+    opacity: 0.7;
+}
+
+.brand-logo {
+    height: 64px;
+}
+
+.brand-logo img {
+    display: inline-block;
+    height: 56px;
+    margin: 4px;
+    transition: 0.3s all;
+}
+
+.brand-logo img:hover {
+    opacity: 0.7;
+}

@@ -1,4 +1,4 @@
-# AHS Open Sorcery: Smart COVID-19 Event Planner
+# Open Sorcery: Smart COVID-19 Event Planner
 
 **Problem:** During the pandemic, we're all trying our best to avoid going out -- but sometimes, it's impossible to avoid. To be as safe as possible, we need many different types of information: how to set up as safely as possible, how to contact-trace, and how much risk is involved in a given event.
 
