@@ -1,0 +1,48 @@
+#layout-editor {
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+    position: relative;
+    background-color: gray;
+}
+
+div.seat {
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    margin: 0;
+}
+
+div.seat p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-align: center;
+}
+
+#layout-editor-buttons-container {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+}
+
+#layout-editor-buttons-container a {
+    margin: 10px;
+    display: block;
+    flex-direction: column;
+    flex: 1;
+    flex-basis: 0;
+}
+
+.spinner-white, .spinner-white-only {
+    border-color: white !important;
+}
+
+#save-button .preloader-wrapper {
+    display: block;
+    margin: 9px auto 0;
+}

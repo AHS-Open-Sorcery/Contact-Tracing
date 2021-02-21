@@ -1,0 +1,27 @@
+
+.valign-wrapper.full-screen {
+  min-height: 80vh; }
+.valign-wrapper #home-logo {
+  max-width: 20%;
+  height: auto;
+  display: block;
+  margin: 0 auto; }
+.valign-wrapper h1 {
+  min-width: 100%;
+  text-align: center;
+  font-size: 36px;
+  margin: 7.5px 0 15px 0; }
+.valign-wrapper h5 {
+  min-width: 100%;
+  text-align: center; }
+.valign-wrapper a {
+  display: block;
+  margin: 0 auto;
+  width: 160px; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%; }
