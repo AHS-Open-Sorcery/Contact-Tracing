@@ -7,7 +7,7 @@ class CountyRisk:
 
     def __init__(self):
         print('reading counties')
-        self.counties = pd.read_csv('us-counties.csv')
+        self.counties = pd.read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')
         today_d = pd.to_datetime(self.counties.date).max()
         self.today = dt.datetime.strftime(today_d, '%Y-%m-%d')
         self.past = dt.datetime.strftime(today_d - dt.timedelta(days=10), '%Y-%m-%d')
@@ -17,7 +17,7 @@ class CountyRisk:
         self.active_cases = dict((fips, s[s.fips == fips].cases[self.today] - s[s.fips == fips].cases[self.past]) for fips in self.all_fips)
 
         print('reading county populations')
-        pop_csv = pd.read_csv('counties.csv')
+        pop_csv = pd.read_csv('https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/counties/totals/co-est2019-alldata.csv')
         pop_csv['FIPS'] = pop_csv.STATE * 1000 + pop_csv.COUNTY
         self.pop = pop_csv.set_index('FIPS')['POPESTIMATE2019']
 
