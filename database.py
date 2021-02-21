@@ -36,3 +36,7 @@ def parse_event(obj: dict) -> Event:
         fips=obj['fips'],
         seats=obj['seats']
     )
+
+
+def num_events() -> int:
+    return len(db.all())
