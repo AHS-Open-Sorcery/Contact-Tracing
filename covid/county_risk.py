@@ -11,8 +11,8 @@ class CountyRisk:
         self.counties = pd.read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')
 
         print('getting ensemble forecasts')
-        # TODO: change this to fetch from the URL on GitHub https://github.com/reichlab/covid19-forecast-hub/blob/master/data-processed/COVIDhub-ensemble/2021-02-15-COVIDhub-ensemble.csv
-        self.forecasts = pd.read_csv("C:\\Users\\jadaf\\Desktop\\Contact-Tracing\\2021-02-15-COVIDhub-ensemble.csv")
+        # changed this to fetch from the URL on GitHub
+        self.forecasts = pd.read_csv("https://github.com/reichlab/covid19-forecast-hub/blob/master/data-processed/COVIDhub-ensemble/2021-02-15-COVIDhub-ensemble.csv")
 
         today_d = pd.to_datetime(self.counties.date).max()
         today_d -= dt.timedelta(days=today_d.weekday() % 5) ## subtract weekday to get to saturday which is 5
