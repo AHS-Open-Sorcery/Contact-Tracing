@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <link rel="stylesheet" href="css/layout-general.css">
     <link rel="stylesheet" href="css/event-layout.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -17,6 +18,18 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 </head>
+<nav id="nav">
+    <div class="nav-wrapper">
+        <a href="/index" class="brand-logo" title="Home"><img src="" alt="COVID-19 Smart Event Planner"/></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/Contact-Tracing/about.html" title="Learn About Us">About Us</a></li>
+            <li><a href="/Contact-Tracing/create-event.html" title="Create an Event">Create Event</a></li>
+            <li><a href="/Contact-Tracing/view-events.html" title="Created Events">My Events</a></li>
+            <li><a href="/Contact-Tracing/invites.html" title="Created Events">Invited events</a></li>
+            <li><a href="/Contact-Tracing/logout.html" title="Logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 <body>
 
 <section id="layout-editor-container">
@@ -25,11 +38,11 @@
     </div>
     <div id="layout-editor-buttons-container">
         <a class="waves-effect waves-light btn-large green darken-4" id="save-button"><i class="material-icons left">save</i>Save</a>
-        <a class="waves-effect waves-light btn-large red darken-4" id="cancel-button"><i class="material-icons left">cancel</i>Cancel</a>
+        <a class="waves-effect waves-light btn-large red darken-4" id="cancel-button"><i class="material-icons left">delete</i>Cancel</a>
     </div>
 </section>
 
-
+<script type="text/javascript" src="js/layout-general.js"></script>
 <script type="text/javascript" src="js/event-layout.js"></script>
 </body>
 </html>

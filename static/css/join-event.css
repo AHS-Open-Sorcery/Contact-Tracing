@@ -1,0 +1,30 @@
+.seat {
+    transition: 0.3s all;
+}
+
+.seat p {
+    font-weight: bold;
+}
+
+.seat.available {
+    border-color: white;
+    color: white;
+}
+
+.seat.available:hover {
+    transform: scale(1.1);
+}
+
+.seat.has-image {
+    background-size: cover;
+    background-position: center;
+    cursor: default;
+}
+
+.seat.selected {
+    border-color: #1b5e20;
+}
+
+.seat.selected p {
+    color: #1b5e20;
+}

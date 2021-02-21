@@ -1,8 +1,3 @@
-const eventSize = 10, numSeats = 100;
-
-const editorContainer = $("#layout-editor");
-const seatWidth = editorContainer.innerHeight() / 15, padding = editorContainer.innerHeight() / 30;
-
 // Generate seats with starting positions
 for (let i = 0; i < numSeats; i++) {
     editorContainer.append(`<div class="seat" id="seat-${i}" style="width: ${seatWidth}px;"><p>${i + 1}</p></div>`);
@@ -99,6 +94,8 @@ function generateSeatLayout() {
             'number': i + 1,
             'top': parseFloat(topStr.substr(0, topStr.length - 2)),
             'left': parseFloat(leftStr.substr(0, leftStr.length - 2)),
+            'occupied': false,
+            'occupiedBy': null,
         })
     }
 
