@@ -2,16 +2,24 @@
 {% block title %}Home{% endblock %}
 
 {% block main %}
-    <div class="valign-wrapper full-screen">
-        <div class="row" style="margin: 0; width: 100%">
-            <!--
-                <div class="col s12">
-                    <img id="home-logo" src="" alt="Logo">
-                </div>
-            -->
+<div class="valign-wrapper full-screen">
+    <div class="row" style="margin: 0; width: 100%">
+        <!--
             <div class="col s12">
-                <h1>Welcome to Smart Covid-19 Event Planner!</h1>
+                <img id="home-logo" src="" alt="Logo">
             </div>
+        -->
+        <div class="col s12">
+            <h1>Welcome to the Smart COVID-19 Event Planner!</h1>
+        </div>
+        <div class="col s6">
+            <a href="/create-event" class="waves-effect waves-light btn-large blue darken-4 btn"
+               style="float: right; width: 35%;">Create an Event</a>
+        </div>
+        <div class="col s6">
+            <a href="/" class="waves-effect waves-light btn-large blue darken-4 btn" style="float: left; width: 35%;">My
+                Events</a>
         </div>
     </div>
+</div>
 {% endblock %}
