@@ -2,7 +2,7 @@ import pandas as pd
 import datetime as dt
 
 class Ascertainment:
-    fmt_date = lambda date: dt.datetime.strftime(date - dt.timedelta(days=21), '%m-%d-%Y')
+    fmt_date = lambda date: dt.datetime.strftime(date, '%m-%d-%Y')
     print(fmt_date)
     csv_loc = lambda date: f'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports_us/{Ascertainment.fmt_date(date)}.csv'
     
