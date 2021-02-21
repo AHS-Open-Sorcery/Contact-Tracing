@@ -11,3 +11,18 @@
 * Contact tracing: We will save the data from the layout for easier contact tracing after the event, if necessary. 
 
 **Libraries/Data Sources Used:**
+* Libraries:
+  * MaterializeCSS - style sheet for frontend
+  * JQuery - general frontend support
+  * Pandas - for data table processing
+  * NumPy - to cooperate with pandas
+  * Python Datetime - to process all the dates in the data
+  * us - for state information
+  * Jinja - integrating frontend and backend
+  * Blacksheep - integrating frontend and backend
+
+* Sources of Data:
+  * [JHU COVID-19 dataset](https://github.com/CSSEGISandData/COVID-19)
+  * [New York Times COVID-19 Data](https://github.com/nytimes/covid-19-data)
+  * [Reich Lab Ensemble Forecast Data](https://github.com/reichlab/covid19-forecast-hub/blob/master/data-processed/COVIDhub-ensemble/2021-02-15-COVIDhub-ensemble.csv)
+  * [Census Data](www2.census.gov/programs-surveys/popest/datasets/2010-2019/counties/totals/co-est2019-alldata.csv)
