@@ -16,6 +16,7 @@ class CountyRisk:
 
         today_d = pd.to_datetime(self.counties.date).max()
         today_d -= dt.timedelta(days=today_d.weekday() % 5) ## subtract weekday to get to saturday which is 5
+        print(type(today_d))
         self.today = dt.datetime.strftime(today_d, '%Y-%m-%d')
         self.past = dt.datetime.strftime(today_d - dt.timedelta(days=7), '%Y-%m-%d')
         print(self.forecasts.head())
@@ -40,7 +41,7 @@ class CountyRisk:
         pop_csv['FIPS'] = pop_csv.STATE * 1000 + pop_csv.COUNTY
         self.pop = pop_csv.set_index('FIPS')['POPESTIMATE2019']
 
-        self.ascertainment = asc.Ascertainment(today_d + dt.timedelta(days=21), pd.to_datetime(self.past + dt.timedelta(days=21)))
+        self.ascertainment = asc.Ascertainment(today_d + dt.timedelta(days=21), pd.to_datetime(self.past) + dt.timedelta(days=21))
     
     def risk(self, county_fips: int, event_size: int, date: dt.datetime) -> float:
         state_fips = str(county_fips // 1000)
