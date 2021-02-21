@@ -1,5 +1,5 @@
 import pandas as pd
-import ascertainment as asc
+from covid import ascertainment as asc
 import datetime as dt
 import us
 

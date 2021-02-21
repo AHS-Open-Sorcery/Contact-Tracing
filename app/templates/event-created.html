@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Event Created Successfully{% endblock %}
+
+{% block main %}
+    <div class="valign-wrapper full-screen">
+        <div class="row" style="margin: 0; width: 100%">
+            <div class="col s12" style="color: white!important;">
+                <h1>Event <i>{{ event.name }}</i> Created Successfully!</h1>
+                <h5>Here is your invite link:
+                    <a href="http://ef4266f8cb68.ngrok.io/join-event/{{ event.id }}"
+                       target="_blank" style="text-decoration: underline; display: inline-block; width: 100%;
+                       color: white; font-weight: bold;">
+                        http://ef4266f8cb68.ngrok.io/join-event/{{ event.id }}</a>
+                </h5>
+            </div>
+        </div>
+
+        <style>
+            body {
+                background-color: #0d47a1;
+            }
+        </style>
+    </div>
+{% endblock %}

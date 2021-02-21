@@ -1,13 +1,16 @@
-from tinydb import TinyDB, Query
+import json
 from event import Event
 from typing import Optional
 from datetime import date
 
-db = TinyDB('events.json')
+with open('events.json', 'w+') as f:
+    x = f.read()
+    if x == '': x = '[]'
+    db = json.loads(x)
 
 
-def store_event(evt: Event) -> int:
-    return db.insert({
+def store_event(evt: Event):
+    newitem = {
         'type': 'event',
         'id': evt.id,
         'name': evt.name,
@@ -15,16 +18,22 @@ def store_event(evt: Event) -> int:
         'date': evt.date.isoformat(),
         'fips': evt.fips,
         'seats': evt.seats
-    })
+    }
+    stored = False
+    for i, item in enumerate(db):
+        if item['id'] == evt.id:
+            db[i] = newitem
+            stored = True
+            break
+    if not stored: db.append(newitem)
+    with open('events.json', 'w') as f:
+        json.dump(db, f)
 
 
-def load_event(_id: int) -> Optional[Event]:
-    Event = Query()
-    jsons = db.search(Event.id == _id)
-    if len(jsons) == 0:
-        return None
-
-    return parse_event(jsons[0])
+def load_event(_id: str) -> Optional[Event]:
+    for item in db:
+        if item['id'] == _id:
+            return parse_event(item)
 
 
 def parse_event(obj: dict) -> Event:
@@ -39,4 +48,4 @@ def parse_event(obj: dict) -> Event:
 
 
 def num_events() -> int:
-    return len(db.all())
+    return len(db)

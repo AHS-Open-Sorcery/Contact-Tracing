@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Join EVENT TITLE HERE</title>
+    <title>Join {{ event.name }}</title>
+    <base href="/">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -22,6 +23,8 @@
 <main>
     <div class="container center-align">
         <h1>Join Event</h1>
+        <h5>You have been invited to join the event: <i>{{ event.name }}</i></h5>
+        <h4>Event Risk Level: <span id="event-risk-score"></span>%</h4>
         <h6>Each white circle indicates an open seat at the venue. Please select the seat of your choice and confirm at the bottom of the page.</h6>
     </div>
 
@@ -40,6 +43,27 @@
 </main>
 
 <script type="text/javascript" src="js/layout-general.js"></script>
+<script type="text/javascript">
+    const numSeatsInEvent = {{ event.seats | length }};
+    const layout = {{ event.seats | tojson }};
+    const eventID = '{{ event.id }}';
+
+    const eventRisk = {{ risk }};
+    let colorToUse = '#d32f2f';
+
+    if (eventRisk <= 0.05) {
+        colorToUse = '#4caf50';
+    } else if (eventRisk < 0.25) {
+        colorToUse = '#cddc39';
+    } else if (eventRisk < 0.5) {
+        colorToUse = '#ffeb3b';
+    } else if (eventRisk < 0.75) {
+        colorToUse = '#ffc107';
+    }
+
+    eventRiskEl.text(Math.round(eventRisk * 10000) / 100);
+    eventRiskEl.css('color', colorToUse);
+</script>
 <script type="text/javascript" src="js/join-event.js"></script>
 </body>
 </html>

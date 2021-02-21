@@ -22,7 +22,11 @@
 <main>
     <div class="container center-align">
         <h1>Event Layout Editor</h1>
-        <h6>Each numbered circle represents a seat in your venue. Relocate them to recreate the layout of your seats as accurately as possible.</h6>
+        <h3>Event: {{ name }}</h3>
+
+        <h4>Event Risk Level: <span id="event-risk-score"></span>%</h4>
+        <h6>Each numbered circle represents a seat in your venue. Relocate them to recreate the layout of your seats as
+            accurately as possible.</h6>
     </div>
 
     <section id="layout-editor-container">
@@ -38,7 +42,29 @@
     </section>
 </main>
 
+
 <script type="text/javascript" src="js/layout-general.js"></script>
+<script type="text/javascript">
+    numSeats = {{ seats }};
+
+    const eventID = '{{ id }}';
+
+    let eventRiskEl = $('#event-risk-score'), eventRisk = {{ risk }};
+    let colorToUse = '#d32f2f';
+
+    if (eventRisk <= 0.05) {
+        colorToUse = '#4caf50';
+    } else if (eventRisk < 0.25) {
+        colorToUse = '#cddc39';
+    } else if (eventRisk < 0.5) {
+        colorToUse = '#ffeb3b';
+    } else if (eventRisk < 0.75) {
+        colorToUse = '#ffc107';
+    }
+
+    eventRiskEl.text(Math.round(eventRisk * 10000) / 100);
+    eventRiskEl.css('color', colorToUse);
+</script>
 <script type="text/javascript" src="js/event-layout.js"></script>
 </body>
 </html>

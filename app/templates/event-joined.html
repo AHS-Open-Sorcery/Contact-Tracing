@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Event Joined Successfully{% endblock %}
+
+{% block main %}
+    <div class="valign-wrapper full-screen">
+        <div class="row" style="margin: 0; width: 100%">
+            <div class="col s12" style="color: white!important;">
+                <h1>Event <i>{{ event.name }}</i> Joined!</h1>
+                <h4>Event Risk Level: <span id="event-risk-score" style="font-weight: bold;"></span>%</h4>
+            </div>
+        </div>
+
+        <style>
+            body {
+                background-color: #0d47a1;
+            }
+        </style>
+    </div>
+
+    <script type="text/javascript">
+        const eventRisk = {{ risk }};
+        eventRiskEl.text(Math.round(eventRisk * 10000) / 100);
+    </script>
+{% endblock %}

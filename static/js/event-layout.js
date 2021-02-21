@@ -81,8 +81,6 @@ for (let i = 0; i < numSeats; i++) {
 
 function generateSeatLayout() {
     let layout = {
-        'numSeats': numSeats,
-        'eventSize': eventSize,
         'seats': []
     };
 
@@ -121,7 +119,18 @@ $('#save-button').click(() => {
 
     let currentLayout = generateSeatLayout();
 
-    console.log(currentLayout);
-
-    window.location.href = '/';
+    $.ajax({
+        type: 'POST',
+        url: '/event-layout',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'layout': currentLayout,
+            'id': eventID
+        }),
+        statusCode: {
+            200: res => {
+                window.location.replace(`/event-created?id=${eventID}`);
+            }
+        }
+    });
 });

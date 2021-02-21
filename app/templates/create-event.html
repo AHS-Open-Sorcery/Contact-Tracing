@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}Create an Event{% endblock %}
 
 {% block main %}
 <body>
@@ -11,7 +11,7 @@
         <form class="col s12" method="POST" action="/event-creation-endpoint">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Placeholder" id="event_name" type="text" class="validate" name="event_name" required>
+                    <input placeholder="What is the name of the event?" id="event_name" type="text" class="validate" name="event_name" required>
                     <label for="event_name">Event Name</label>
                 </div>
             </div>
@@ -22,16 +22,16 @@
                     <label for="event_date">Event Date</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="What is the locations FIPS code?" id="event_location" type="text" name="event_location"
+                    <input placeholder="What is the location's zip code?" id="event_location" type="number" name="event_location"
                            class="validate" required>
-                    <label for="event_location">Event Location <a href="https://smartystreets.com/products/single-address?city=&state=&zipcode=&address-type=us-zipcode">(FIPS Code)</a></label>
+                    <label for="event_location">Event Location {#<a href="https://smartystreets.com/products/single-address?city=&state=&zipcode=&address-type=us-zipcode">(FIPS Code)</a>#}</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Who is organizing the event?" id="organizer" type="text" class="validate" name="event_organizer"
+                    <input placeholder="Who is organizing the event?" id="organizer" type="email" class="validate" name="event_organizer"
                            required>
-                    <label for="organizer">Organizer</label>
+                    <label for="organizer">Organizer Email</label>
                 </div>
             </div>
             <div class="row">
@@ -58,8 +58,10 @@
     </div>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.datepicker').datepicker();
+        $(document).ready(() => {
+            $('.datepicker').datepicker({
+                minDate: new Date()
+            });
         });
     </script>
 </div>

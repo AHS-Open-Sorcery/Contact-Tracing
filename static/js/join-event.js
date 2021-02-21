@@ -1,11 +1,9 @@
-const layout = JSON.parse(window.localStorage.getItem('layout'));
 let lastSelectedSeat = null;
 
-numSeats = layout.numSeats;
 
 // Generate seats with starting positions
-for (let i = 0; i < numSeats; i++) {
-    editorContainer.append(`<div class="seat ${layout.seats[i].occupied ? '' : 'available'}" id="seat-${i}" style="height: ${seatWidth}px; width: ${seatWidth}px; top: ${layout.seats[i].top}px; left: ${layout.seats[i].left}px;"><p>${i + 1}</p></div>`);
+for (let i = 0; i < numSeatsInEvent; i++) {
+    editorContainer.append(`<div class="seat ${layout[i].occupied ? '' : 'available'}" id="seat-${i}" style="height: ${seatWidth}px; width: ${seatWidth}px; top: ${layout[i].top}px; left: ${layout[i].left}px;"><p>${i + 1}</p></div>`);
 }
 
 $('.seat.available').on('click', '*', (event) => {
@@ -50,11 +48,15 @@ $('#select-button').click(() => {
     $.ajax({
         type: 'POST',
         url: '/join-event-endpoint',
-        data: {
-            'seat_number': parseInt(lastSelectedSeat.attr('id').split('-')[1]) + 1
-        },
-        success: () => {
-            window.location.href="/";
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'seat_number': parseInt(lastSelectedSeat.attr('id').split('-')[1]) + 1,
+            'id': eventID
+        }),
+        statusCode: {
+            200: res => {
+                window.location.replace(`/event-joined?id=${eventID}`);
+            }
         }
-    })
+    });
 });
