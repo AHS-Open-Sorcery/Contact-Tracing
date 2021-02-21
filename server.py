@@ -2,7 +2,13 @@ import uvicorn
 from blacksheep.server import Application
 from blacksheep.server.bindings import FromForm
 from blacksheep.server.templating import use_templates
+from blacksheep.server.responses import redirect
 from jinja2 import PackageLoader
+from event import Event
+import json
+import database as db
+from datetime import datetime, date
+from nanoid import generate
 
 app = Application()
 view = use_templates(app, loader=PackageLoader('app', 'templates'))
@@ -54,6 +60,17 @@ class EventCreationInput:
 @app.router.post('/event-creation-endpoint')
 async def create_event_from_post(input: FromForm[EventCreationInput]):
     data = input.value
+
+    evt = Event(
+        id=generate(size=8),
+        name=data.event_name,
+        creator_email=data.event_organizer,
+        date=datetime.strptime(data.event_date, '%b %d, %Y'),
+        fips=int(data.event_location),
+        seats=[]
+    )
+    db.store_event(evt)
+    return redirect('/event-layout?id=' + evt.id)
 
 
 class EventJoinData:
