@@ -46,4 +46,15 @@ $('#select-button').click(() => {
         '      </div>\n' +
         '    </div>\n' +
         '  </div>');
+
+    $.ajax({
+        type: 'POST',
+        url: '/join-event-endpoint',
+        data: {
+            'seat_number': parseInt(lastSelectedSeat.attr('id').split('-')[1]) + 1
+        },
+        success: () => {
+            window.location.href="/";
+        }
+    })
 });

@@ -56,6 +56,19 @@ async def create_event_from_post(input: FromForm[EventCreationInput]):
     data = input.value
 
 
+class EventJoinData:
+    seat_number: int
+
+    def __init__(self, seat_number: int) -> None:
+        self.seat_number = seat_number
+
+
+@app.router.post('/join-event-endpoint')
+async def join_event_from_post(input: FromForm[EventJoinData]):
+    data = input.value
+
+    print(data.seat_number)
+
 
 app.serve_files('static')
 
