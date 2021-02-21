@@ -8,41 +8,41 @@
 
 <div class="row">
     <div class="container">
-        <form class="col s12" method="POST" action="#">
+        <form class="col s12" method="POST" action="/event-creation-endpoint">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Placeholder" id="event_name" type="text" class="validate" required>
+                    <input placeholder="Placeholder" id="event_name" type="text" class="validate" name="event_name" required>
                     <label for="event_name">Event Name</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" placeholder="When is the event?" id="event_date" class="datepicker" required>
+                    <input type="text" placeholder="When is the event?" id="event_date" class="datepicker" name="event_date" required>
                     <label for="event_date">Event Date</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="What is the locations FIPS code?" id="event_location" type="text"
+                    <input placeholder="What is the locations FIPS code?" id="event_location" type="text" name="event_location"
                            class="validate" required>
                     <label for="event_location">Event Location <a href="https://smartystreets.com/products/single-address?city=&state=&zipcode=&address-type=us-zipcode">(FIPS Code)</a></label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Who is organizing the event?" id="organizer" type="text" class="validate"
+                    <input placeholder="Who is organizing the event?" id="organizer" type="text" class="validate" name="event_organizer"
                            required>
                     <label for="organizer">Organizer</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="How many people will be attending??" id="event_population" type="text"
-                           class="validate" required>
+                    <input placeholder="How many people will be attending?" id="event_population" type="text"
+                           class="validate" name="event_population" required>
                     <label for="event_population">Event Population</label>
                 </div>
                 <div class="input-field col s6">
                     <input placeholder="Number of seats at the event?" id="event_seats" type="text" class="validate"
-                           required>
+                           name="event_seats" required>
                     <label for="event_seats">Event Seats</label>
                 </div>
             </div>
