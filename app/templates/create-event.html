@@ -3,59 +3,65 @@
 
 {% block main %}
 <body>
-<script>
-$(document).ready(function(){
-$('.datepicker').datepicker();
-});
-
-</script>
-
-
 <br>
 <br>
 
 <div class="row">
-    <form class="col s12" action="#">
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Placeholder" id="event_name" type="text" class="validate">
-          <label for="event_name">Event Name</label>
-        </div>
-      </div>
+    <div class="container">
+        <form class="col s12" method="POST" action="#">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Placeholder" id="event_name" type="text" class="validate" required>
+                    <label for="event_name">Event Name</label>
+                </div>
+            </div>
 
-    <div class="row">
-      <div class="input-field col s6">
-          <input type="text" placeholder="When is the event?" id="event_date" class="datepicker">
-          <label for="event_date">Event Date</label>
-        </div>
-      <div class="input-field col s6">
-          <input placeholder="Where is the location?" id="event_location" onFocus="geolocate()" type="text" class="validate">
-          <label for="event_location">Event Location</label>
-        </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" placeholder="When is the event?" id="event_date" class="datepicker" required>
+                    <label for="event_date">Event Date</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Where is the location?" id="event_location" onFocus="geolocate()" type="text"
+                           class="validate" required>
+                    <label for="event_location">Event Location (FIPS Code)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Who is organizing the event?" id="organizer" type="text" class="validate"
+                           required>
+                    <label for="organizer">Organizer</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="How many people will be attending??" id="event_population" type="text"
+                           class="validate" required>
+                    <label for="event_population">Event Population</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Number of seats at the event?" id="event_seats" type="text" class="validate"
+                           required>
+                    <label for="event_seats">Event Seats</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button class="btn btn-block btn-large waves-effect waves-light green darken-4" type="submit"
+                            name="action" style="width: 25%; display: block; margin: 0 auto;"><i
+                            class="material-icons left">check</i>Submit
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input placeholder="Who is organizing the event?" id="organizer" type="text" class="validate">
-        <label for="organizer">Organizer</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-          <input placeholder="How many people will be attending??" id="event_population" type="text" class="validate">
-          <label for="event_population">Event Population</label>
-        </div>
-      <div class="input-field col s6">
-        <input placeholder="Number of seats at the event?" id="event_seats" type="text" class="validate">
-          <label for="event_seats">Event Seats</label>
-      </div>
-    </div>
-        <div class="row">
-    <div class="col s12">
-        <button class="btn btn-block btn-large waves-effect waves-light" type="submit" name="action">Submit
-        </button>
-    </div>
-</div>
-  </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.datepicker').datepicker();
+        });
+    </script>
 </div>
 
 </body>
